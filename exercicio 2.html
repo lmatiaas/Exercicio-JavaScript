@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercício de JavaScript</h1>
+    <h1> Aluno: Lucas Matias de Souza Silva</h1>
+    <h1>Questão 2</h1>
+    <h2>Cálculo do IMC</h2>
+
+    <label for="altura">Altura (M)</label>
+    <input type="number" id="altura" name="altura">
+    <br>
+    <label for="peso">Peso (Kg)</label>
+    <input type="number" id="peso" name="peso">
+    <br>
+    <button onclick="calcula()">Calcular</button>
+    <br>
+    <p>IMC: <span id="imc"></span></p>
+
+    <script>
+        let imc = 0;
+
+        function calcula() {
+            let altura = document.getElementById("altura").value;
+            let peso = document.getElementById("peso").value;
+            let imc = document.getElementById("imc");
+
+            if (peso <= 0 || altura <= 0) {
+                alert('Digite valores válidos para peso e altura!');
+            } else {
+                let valorIMC = (peso / (altura * altura)).toFixed(1);
+                let classificacao = "";
+                
+
+                if (valorIMC < 17) {
+                    classificacao = valorIMC + " Muito abaixo do peso normal";
+                    cor = "red";
+                } else if (valorIMC <= 20) {
+                    classificacao = valorIMC + " Abaixo do peso normal";
+                    cor = "orange";
+                } else if (valorIMC <= 25) {
+                    classificacao = valorIMC + " Peso normal";
+                    cor = "green";
+                } else if (valorIMC < 30) {
+                    classificacao = valorIMC + " Sobrepeso";
+                    cor = "orange";
+                } else if (valorIMC < 35) {
+                    classificacao = valorIMC + " Obesidade grau 1";
+                    cor = "red";
+                } else if (valorIMC < 40) {
+                    classificacao = valorIMC + " Obesidade grau 2";
+                    cor = "red";
+                } else {
+                    classificacao = valorIMC + " Obesidade grau 3";
+                    cor = "red";
+                }
+
+                imc.textContent = classificacao;
+                document.getElementById("imc").style.color = cor;
+            }
+        }
+    </script>
+</body>
+</html>

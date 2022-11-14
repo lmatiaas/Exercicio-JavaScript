@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercício de JavaScript</h1>
+    <h1> Aluno: Lucas Matias de Souza Silva</h1>
+    <h1> Questão 3</h1>
+    <h2>Objeto Element</h2>
+    <h3>O método appendChild()</h3>
+
+    <ul id="myList">
+        <li>Café</li>
+        <li>Chá</li>
+    </ul>
+
+    <p>Clique no botão para acrescentar um item ao fim da lista</p>
+
+    <label for="item">Digite o nome do item que você quer acrescentar:</label>
+    <br>
+    <input type="text" id="item" name="item">
+    <br>
+    <button id="btn">Acrescentar</button>
+    <br>
+    <form id="form">
+        <p>Escolha a cor da lista</p>
+        <ul>
+            <input type="radio" id="red" name="cores" value="red">
+            <label for="red">vermelho</label><br>
+
+            <input type="radio" id="green" name="cores" value="green">
+            <label for="green">verde</label><br>
+
+            <input type="radio" id="blue" name="cores" value="blue">
+            <label for="blue">azul</label><br>
+        </ul>
+    </form>
+    <script>
+        document.getElementById("btn").addEventListener("click", myFunction);
+
+        function myFunction() {
+
+            cor = document.querySelector('input[name="cores"]:checked').value;
+            // Create an "li" node:
+            const node = document.createElement("li");
+
+            // Create a text node:
+            const textnode = document.createTextNode(document.getElementById("item").value);
+
+            // Append the text node to the "li" node:
+            node.appendChild(textnode);
+
+            // Append the "li" node to the list:
+            document.getElementById("myList").appendChild(node).style.color=cor;
+
+        }
+
+    </script>
+</body>
+</html>

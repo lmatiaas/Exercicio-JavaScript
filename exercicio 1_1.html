@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+</head>
+
+<body>
+    <h1>Exercício de JavaScript</h1>
+    <h1> Aluno: Lucas Matias de Souza Silva</h1>
+    <h1>Questão 1</h1>
+    <p id="situacao">Olá, aluno!</p>
+    <script>
+        let nome = prompt('Digite seu nome:');
+        let n1 = parseFloat(prompt('Nota1:'));
+        let n2 = parseFloat(prompt('Nota2:'));
+
+        let media = (n1 + n2) / 2;
+
+        let situacao = "";
+        let cor = "";
+
+        if (media >= 6.0) {
+            situacao = 'Aprovado!';
+            cor = "green";
+        } else {
+            if (media >= 2.0) {
+                situacao = 'Exame Final!';
+                cor = "yellow";
+            } else {
+                situacao = 'Reprovado :(';
+                cor = "red";
+            }
+        }
+
+        document.getElementById('situacao').innerHTML = 'Olá, '+ nome + ' seu resultado foi: ' +situacao;
+        document.getElementById('situacao').style.color = cor;
+    </script>
+    
+</body>
+
+</html>
